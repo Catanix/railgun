@@ -40,6 +40,20 @@ If you ask the agent to *"fix the padding on the submit button,"* it won't read 
 
 ---
 
+## ⚠️ Reality Check: LLMs Are Probabilistic
+
+RAILGUN is a **scaffolding system**, not magic. It drastically improves consistency and reduces token waste, but it cannot turn a probabilistic LLM into a deterministic compiler.
+
+Here is what actually happens in the real world:
+
+* **Agents sometimes skip steps.** Even with mandatory `AGENTS.md` discovery, an agent can occasionally forget to check `00-runtime/current.md` or skip the Final Gate checklist. A simple reminder like *"Follow RAILGUN and cite the rails you used"* usually fixes it.
+* **Rules can be misinterpreted.** An agent might read `state-management.md` and still mutate state directly in a component because the pattern looked "close enough" to its training data. This is normal LLM behavior — not a failure of RAILGUN.
+* **Context windows have limits.** On very large tasks, the agent may lose track of earlier rails. Breaking work into smaller tasks helps more than adding more rules.
+
+**The bottom line:** RAILGUN moves you from *"random agent behavior"* to *"mostly predictable agent behavior with clear recovery paths."* When an agent drifts, you don't rewrite your whole system — you just point it back to the relevant rail.
+
+---
+
 ## 🛠️ See It In Action: Building a React Component
 
 Let's trace how a RAILGUN-equipped agent handles a standard task: *"Build a new `<CartWidget/>` React component."*
