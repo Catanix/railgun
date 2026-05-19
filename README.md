@@ -91,13 +91,37 @@ When the team needs a new rule, it is added via the **Rail Protocol** (`.railgun
 
 ---
 
-## 👥 Scaling to Multi-Agent Teams
+## 🏗️ Adding New Rules to RAILGUN
 
-When 5-10 developers on a team are all spinning up their own AI agents, a repository can turn into a Frankenstein's monster of competing paradigms. Developer A's agent prefers Redux, while Developer B's agent tries to rewrite everything in Context API.
+**Never edit rails manually.** RAILGUN is a deterministic system: every change must pass validation to prevent contradictions, duplicates, and broken cross-references.
 
-RAILGUN acts as the **immutable source of truth**. No matter which developer triggers the AI, the output always conforms to your project's native DNA. It eliminates the *"works on my prompt"* excuse—the prompt is now the repository itself.
+Instead, ask your AI agent to do it. The agent automatically follows `.railgun/rail-protocol.md`, which enforces:
 
-Because every agent automatically discovers and loads the same hierarchical `AGENTS.md` files, you get deterministic behavior across Kimi, Claude, Cursor, and Copilot.
+1. **Layer placement check** — is this domain, blueprint, validation, or guardrails?
+2. **Duplicate detection** — does a similar rail already exist?
+3. **Format compliance** — imperative language, no essays, no code snippets.
+4. **Dispatcher update** — the layer's `AGENTS.md` must point to the new rail.
+5. **Contradiction scan** — the new rule must not conflict with existing layers.
+
+### Example Prompts
+
+Here is exactly what to tell your AI agent:
+
+**Adding a new architectural rule:**
+> "Add a new rail to RAILGUN that forbids direct `axios` calls in React components. All HTTP requests must go through the API client in `lib/api-client.ts`. Place it in the blueprint layer."
+
+**Updating an existing rail:**
+> "Update the `02-blueprint/state-management.md` rail: we are migrating from Zustand to Redux Toolkit. Replace all Zustand-specific rules with Redux Toolkit patterns."
+
+**Adding domain terminology:**
+> "Add a new `payment-flows.md` rail to `01-domain/`. Define the checkout sequence: Cart → Checkout → Payment → Confirmation. Strict naming: use `PaymentIntent` (never `PaymentRequest` or `Charge`)."
+
+**Adding a testing requirement:**
+> "Add a rule to `03-validation/unit-tests.md`: all async operations must be tested with `waitFor` from React Testing Library. Live network calls in tests are strictly forbidden."
+
+### What the Agent Does Next
+
+The agent will read `rail-protocol.md`, validate the layer, write the file, update the dispatcher, and report back with the file path and confirmation that no contradictions were found. You only review and approve the result.
 
 ---
 
