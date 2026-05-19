@@ -1,6 +1,18 @@
-# ⚡️ RAILGUN
+<p align="center">
+  <img src="assets/banner.png" alt="RAILGUN Banner" />
+</p>
 
-### **R**epository-level **A**I **L**ogic & **G**uidance **U**nified **N**etwork
+<h1 align="center">⚡️ RAILGUN</h1>
+
+<p align="center"><strong>R</strong>epository-level <strong>A</strong>I <strong>L</strong>ogic & <strong>G</strong>uidance <strong>U</strong>nified <strong>N</strong>etwork</p>
+
+<p align="center">
+  <a href="#-system-architecture">System Architecture</a> •
+  <a href="#-layers-how-the-railgun-stack-works">Layers</a> •
+  <a href="#-adding-new-rules-to-railgun">Adding Rules</a> •
+  <a href="#-task-enforcement--lifecycle-lock">Lifecycle Lock</a> •
+  <a href="#-extending-the-rails">Extending</a>
+</p>
 
 **RAILGUN** is an **enterprise-ready, highly customizable methodology** embedded directly into your repository. It forces AI agents (Kimi Code CLI, Claude Code, Cursor, Windsurf, Copilot, Codex) to write deterministic, compliant, and architecture-aligned code.
 
