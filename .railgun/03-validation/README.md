@@ -1,4 +1,4 @@
-# 02-validation: The Quality Gates
+# 03-validation: The Quality Gates
 
 This layer defines how we prove that code works and meets quality standards.
 

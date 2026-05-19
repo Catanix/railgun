@@ -1,4 +1,4 @@
-# 03-guardrails: Security & Delivery
+# 04-guardrails: Security & Delivery
 
 **Load this layer LAST, before finishing any task. Also load it when the task involves: security, secrets, authentication, or commit formatting.**
 

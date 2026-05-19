@@ -27,8 +27,8 @@ Write code in strict compliance with loaded rails only.
 
 ### Phase 3: Final Gate (NON-NEGOTIABLE)
 Before saying "done", "finished", "complete", or declaring success:
-1. Read `03-guardrails/AGENTS.md`
-2. Read `03-guardrails/checklist.md`
+1. Read `04-guardrails/AGENTS.md`
+2. Read `04-guardrails/checklist.md`
 3. Explicitly confirm EACH checklist item applicable to your task
 4. Fix any failures immediately
 5. Only then declare the task complete
@@ -45,21 +45,21 @@ For EVERY task, follow this order:
 3. **Load Layer Dispatcher** → Open the `AGENTS.md` in the matched layer(s)
 4. **Load Relevant Rails** → Open ONLY the specific `.md` files referenced by the layer dispatcher
 5. **Execute** → Write code in strict compliance with loaded rails
-6. **Self-Validation** → Run through `03-guardrails/checklist.md` before finishing
+6. **Self-Validation** → Run through `04-guardrails/checklist.md` before finishing
 
 ## Task-to-Layer Matrix
 
 | If your task involves... | Go to Layer | Dispatcher to Read |
 |--------------------------|-------------|--------------------|
 | Sprint status, active tasks, code freezes, temporary workarounds, "what is the team doing now" | `00-runtime` | `00-runtime/AGENTS.md` |
-| State management, routing, architecture, patterns, libraries, file structure, framework usage | `01-blueprint` | `01-blueprint/AGENTS.md` |
-| Unit tests, E2E tests, mocking, test data, coverage, CI quality gates | `02-validation` | `02-validation/AGENTS.md` |
-| Security review, secrets, input validation, commit format, pre-commit checks, self-review | `03-guardrails` | `03-guardrails/AGENTS.md` |
-| Business entities, naming variables/functions, data models, validation rules, workflows, glossary | `04-domain` | `04-domain/AGENTS.md` |
+| State management, routing, architecture, patterns, libraries, file structure, framework usage | `02-blueprint` | `02-blueprint/AGENTS.md` |
+| Unit tests, E2E tests, mocking, test data, coverage, CI quality gates | `03-validation` | `03-validation/AGENTS.md` |
+| Security review, secrets, input validation, commit format, pre-commit checks, self-review | `04-guardrails` | `04-guardrails/AGENTS.md` |
+| Business entities, naming variables/functions, data models, validation rules, workflows, glossary | `01-domain` | `01-domain/AGENTS.md` |
 
-**Multi-layer tasks:** If a task spans layers (e.g., "build payment form with tests"), load ALL relevant layers sequentially. Start with `04-domain` (what to build), then `01-blueprint` (how to build), then `02-validation` (how to test), and finish with `03-guardrails` (checklist).
+**Multi-layer tasks:** If a task spans layers (e.g., "build payment form with tests"), load ALL relevant layers sequentially. Start with `01-domain` (what to build), then `02-blueprint` (how to build), then `03-validation` (how to test), and finish with `04-guardrails` (checklist).
 
-**When in doubt:** Load `04-domain` for naming and `01-blueprint` for implementation. Ask the human if you are still unsure.
+**When in doubt:** Load `01-domain` for naming and `02-blueprint` for implementation. Ask the human if you are still unsure.
 
 ## Editing / Updating RAILGUN
 
@@ -68,7 +68,7 @@ You MAY modify files inside `.railgun/` ONLY when explicitly requested by a huma
 ### Rules for Editing RAILGUN
 
 1. **Identify the target layer** using the Task-to-Layer Matrix above
-2. **Update the specific rail file** (e.g., `01-blueprint/state-management.md`) — never dump unrelated rules into the wrong layer
+2. **Update the specific rail file** (e.g., `02-blueprint/state-management.md`) — never dump unrelated rules into the wrong layer
 3. **Update the layer's `AGENTS.md` dispatcher** if you add a new rail file — the dispatcher must list all available rails in that layer
 4. **Update the layer's `README.md`** if the purpose or structure of the layer changes
 5. **You MAY proactively update `00-runtime/current.md`** when the human shares new sprint info, blockers, or priorities during a conversation — this is the only layer you may update without an explicit request

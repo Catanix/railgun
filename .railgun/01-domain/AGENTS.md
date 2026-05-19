@@ -1,4 +1,4 @@
-# 04-domain: Business Logic
+# 01-domain: Business Logic
 
 **Load this layer when the task involves: naming anything, business entities, data models, validation rules, or multi-step workflows.**
 

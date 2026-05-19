@@ -1,4 +1,4 @@
-# 04-domain: Business Logic
+# 01-domain: Business Logic
 
 This layer defines WHAT the product is and how the business speaks about it.
 

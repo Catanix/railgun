@@ -1,4 +1,4 @@
-# 02-validation: Quality Gates
+# 03-validation: Quality Gates
 
 **Load this layer when the task involves: writing tests, mocks, test utilities, coverage, or CI quality.**
 

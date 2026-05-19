@@ -19,8 +19,8 @@ Many teams try to control their AI by dumping every project rule, methodology pr
 | 🤖 The Monolithic `AGENTS.md` | ⚡️ The RAILGUN methodology |
 | --- | --- |
 | **Token Nightmare:** Injects 5,000+ lines of text into the context window for *every single prompt*, even for a 1-line typo fix. | **Context Lazy-Loading:** `AGENTS.md` files act as lightweight dispatchers. Only the specific rules required for the current task are loaded, slashing token costs. |
-| **Context Degradation:** The AI gets "distracted" by backend rules when writing frontend code, leading to hallucinations. | **Laser Focus:** The AI reads `01-blueprint/AGENTS.md` when doing architecture, and `04-domain/AGENTS.md` when doing database work. Zero noise. |
-| **Maintenance Hell:** A single 10-page markdown file becomes impossible for human developers to maintain and update. | **Modular & Clean:** Rules are neatly organized into folders (`01-blueprint`, `04-domain`). Updates are frictionless. |
+| **Context Degradation:** The AI gets "distracted" by backend rules when writing frontend code, leading to hallucinations. | **Laser Focus:** The AI reads `02-blueprint/AGENTS.md` when doing architecture, and `01-domain/AGENTS.md` when doing database work. Zero noise. |
+| **Maintenance Hell:** A single 10-page markdown file becomes impossible for human developers to maintain and update. | **Modular & Clean:** Rules are neatly organized into folders (`02-blueprint`, `01-domain`). Updates are frictionless. |
 | **Unreliable Discovery:** The agent must "decide" to read the file. If it forgets, the rules are ignored. | **Automatic Activation:** `AGENTS.md` is discovered and loaded by the agent automatically when working with files in the directory tree. The agent cannot skip it. |
 
 ---
@@ -33,7 +33,7 @@ RAILGUN introduces **Context Lazy-Loading** via hierarchical `AGENTS.md` files:
 
 1. The root `AGENTS.md` activates RAILGUN and points to `.railgun/AGENTS.md` (the Command Center).
 2. The Command Center contains almost no actual rules—only navigation maps.
-3. The agent then loads the specific `AGENTS.md` in the relevant layer (e.g., `01-blueprint/`).
+3. The agent then loads the specific `AGENTS.md` in the relevant layer (e.g., `02-blueprint/`).
 4. That layer's `AGENTS.md` dispatches to the exact rail file needed (e.g., `state-management.md`).
 
 If you ask the agent to *"fix the padding on the submit button,"* it won't read your database schemas or your unit testing protocols. It saves your context window for what actually matters: the code.
@@ -47,11 +47,11 @@ Let's trace how a RAILGUN-equipped agent handles a standard task: *"Build a new 
 1. **Automatic Activation:** The AI opens the project and automatically loads the root `AGENTS.md`. It learns that this repository is RAILGUN-controlled and must read `.railgun/AGENTS.md` before any action.
 2. **Command Center:** It opens `.railgun/AGENTS.md` and learns the mandatory execution loop: always check runtime first, then load only the relevant layers.
 3. **Sprint Check:** It loads `00-runtime/AGENTS.md` and notes that the team is currently refactoring the legacy UI, so it should be extra careful with global styles.
-4. **Layer Dispatch:** It classifies the task as "frontend / state-related" and loads `01-blueprint/AGENTS.md`. The layer's dispatcher tells it to read `state-management.md`.
-5. **Architectural Blueprint:** It follows the link to `01-blueprint/state-management.md` and learns that it must read state using a specific `Zustand` store hook, and that mutating the cart directly inside the React component is forbidden.
-6. **Domain Sync:** Before naming variables, it loads `04-domain/AGENTS.md`. The dispatcher points to `glossary.md`. It learns that items in a cart are strictly called `CartLineItem` (never `ProductItem` or `CartRow`).
-7. **Validation Check:** It writes the React code, then loads `02-validation/AGENTS.md`. The dispatcher points to `unit-tests.md`. It learns it must use React Testing Library, select elements via `data-testid`, and mock the network. It writes the test.
-8. **The Sign-off:** Finally, it loads `03-guardrails/AGENTS.md`, runs through the `checklist.md`, ensures no `console.log` statements are left, and commits the work using the exact Conventional Commit format required, citing the rails it used in the footer.
+4. **Layer Dispatch:** It classifies the task as "frontend / state-related" and loads `02-blueprint/AGENTS.md`. The layer's dispatcher tells it to read `state-management.md`.
+5. **Architectural Blueprint:** It follows the link to `02-blueprint/state-management.md` and learns that it must read state using a specific `Zustand` store hook, and that mutating the cart directly inside the React component is forbidden.
+6. **Domain Sync:** Before naming variables, it loads `01-domain/AGENTS.md`. The dispatcher points to `glossary.md`. It learns that items in a cart are strictly called `CartLineItem` (never `ProductItem` or `CartRow`).
+7. **Validation Check:** It writes the React code, then loads `03-validation/AGENTS.md`. The dispatcher points to `unit-tests.md`. It learns it must use React Testing Library, select elements via `data-testid`, and mock the network. It writes the test.
+8. **The Sign-off:** Finally, it loads `04-guardrails/AGENTS.md`, runs through the `checklist.md`, ensures no `console.log` statements are left, and commits the work using the exact Conventional Commit format required, citing the rails it used in the footer.
 
 **Result:** A perfect, enterprise-grade React component, written exactly how your senior engineers would write it.
 
@@ -76,12 +76,12 @@ The agent writes code in strict compliance with the loaded rails only. No improv
 
 ### Phase 3: Final Gate (Non-Negotiable)
 Before the agent is permitted to say "done", "finished", or "complete", it MUST:
-1. Load `03-guardrails/AGENTS.md`
-2. Read `03-guardrails/checklist.md`
+1. Load `04-guardrails/AGENTS.md`
+2. Read `04-guardrails/checklist.md`
 3. Explicitly confirm each applicable checklist item
 4. Fix any failures immediately
 
-The `03-guardrails` layer contains the **Non-Negotiable Completion Rule**: there are no exceptions, no "I will fix it later", and no bypassing the checklist. This ensures that every task—whether a 1-line fix or a new feature—passes the same quality gate.
+The `04-guardrails` layer contains the **Non-Negotiable Completion Rule**: there are no exceptions, no "I will fix it later", and no bypassing the checklist. This ensures that every task—whether a 1-line fix or a new feature—passes the same quality gate.
 
 ### Checklist Hygiene
 After confirming the checklist and declaring the task complete, the agent resets all checkboxes back to `[ ]` (unchecked). The next agent must start with a clean checklist. This is enforced by the `Agent Hygiene Rule` inside `checklist.md`.
@@ -112,22 +112,22 @@ The entire methodology is isolated in a single, lightweight root directory:
 │   ├── README.md              # Human-readable: purpose of this layer
 │   ├── AGENTS.md              # AI dispatcher: what to check in current.md
 │   └── current.md             # Active sprint goals, temporary code freezes, workarounds
-├── 📐 01-blueprint/           # The Engineering Skeleton (Read-Only for AI)
+├── 📐 02-blueprint/           # The Engineering Skeleton (Read-Only for AI)
 │   ├── README.md
 │   ├── AGENTS.md              # AI dispatcher: maps tasks to architecture rails
 │   ├── state-management.md    # Data mutation laws and centralized store rules
 │   └── routing.md             # Guard layouts, lazy-loading requirements
-├── 🧪 02-validation/          # The Quality Gates (Read-Only for AI)
+├── 🧪 03-validation/          # The Quality Gates (Read-Only for AI)
 │   ├── README.md
 │   ├── AGENTS.md              # AI dispatcher: maps tasks to testing rails
 │   ├── unit-tests.md          # Mocking protocols, assertion syntax (No live network!)
 │   └── e2e-tests.md           # Browser targets and explicit selector rules
-├── 🛡️ 03-guardrails/          # Security & Delivery (Read-Only for AI)
+├── 🛡️ 04-guardrails/          # Security & Delivery (Read-Only for AI)
 │   ├── README.md
 │   ├── AGENTS.md              # AI dispatcher: maps tasks to security/checklist rails
 │   ├── checklist.md           # Mandatory self-review and Conventional Commit specs
 │   └── security.md            # PII handling, secret scrubbing, env rules
-└── 💼 04-domain/              # Business Logic (Read-Only for AI)
+└── 💼 01-domain/              # Business Logic (Read-Only for AI)
     ├── README.md
     ├── AGENTS.md              # AI dispatcher: maps tasks to domain rails
     ├── glossary.md            # Ubiquitous Language: Strict naming conventions
@@ -155,19 +155,19 @@ RAILGUN splits context into **five isolated layers**. Each layer answers a singl
 ### The Golden Rules of Layers
 
 1. **Always check `00-runtime` first.** It contains temporary facts (sprints, freezes, hotfixes) that can override every other layer.
-2. **Load only the layers relevant to the task.** Fixing a CSS class? You probably need `01-blueprint` (if it covers styling) and nothing else. Adding a payment form? You need `01-blueprint` (state), `04-domain` (payment terms), and `02-validation` (test rules).
-3. **Never mix layer boundaries.** If a file in `01-blueprint` starts defining business entity names, move it to `04-domain`. If `04-domain` starts prescribing testing frameworks, move it to `02-validation`.
-4. **Guardrails are the final checkpoint, not the starting point.** `03-guardrails` is for sign-off: security scrub, checklist, commit format. Load it after the work is done.
+2. **Load only the layers relevant to the task.** Fixing a CSS class? You probably need `02-blueprint` (if it covers styling) and nothing else. Adding a payment form? You need `02-blueprint` (state), `01-domain` (payment terms), and `03-validation` (test rules).
+3. **Never mix layer boundaries.** If a file in `02-blueprint` starts defining business entity names, move it to `01-domain`. If `01-domain` starts prescribing testing frameworks, move it to `03-validation`.
+4. **Guardrails are the final checkpoint, not the starting point.** `04-guardrails` is for sign-off: security scrub, checklist, commit format. Load it after the work is done.
 
 ### Layer Breakdown
 
 | Layer | Question it Answers | Mutability | When to Load |
 |-------|---------------------|------------|--------------|
 | **⏳ 00-runtime** | *"What is the team working on THIS SPRINT?"* | **Mutable** | **Always first.** Check active sprint tasks, modules in refactoring, and current priorities before writing any code. |
-| **📐 01-blueprint** | *"HOW should I write the code?"* | Read-Only for AI | When the task touches architecture, patterns, libraries, or file structure. |
-| **🧪 02-validation** | *"How do I PROVE the code works?"* | Read-Only for AI | When writing or modifying tests, mocks, or CI logic. |
-| **🛡️ 03-guardrails** | *"What must I CHECK before I finish?"* | Read-Only for AI | **Always last.** Use as a mandatory self-review before commits or final output. |
-| **💼 04-domain** | *"WHAT am I building?"* | Read-Only for AI | When naming variables, defining models, or implementing business flows. |
+| **📐 02-blueprint** | *"HOW should I write the code?"* | Read-Only for AI | When the task touches architecture, patterns, libraries, or file structure. |
+| **🧪 03-validation** | *"How do I PROVE the code works?"* | Read-Only for AI | When writing or modifying tests, mocks, or CI logic. |
+| **🛡️ 04-guardrails** | *"What must I CHECK before I finish?"* | Read-Only for AI | **Always last.** Use as a mandatory self-review before commits or final output. |
+| **💼 01-domain** | *"WHAT am I building?"* | Read-Only for AI | When naming variables, defining models, or implementing business flows. |
 
 ### Layer Details
 
@@ -180,7 +180,7 @@ This is where the current sprint lives. Active tasks, modules being refactored, 
 
 **For Humans:** Update this layer at least once per sprint. It is the project's heartbeat and the primary coordination surface for multi-agent teams.
 
-#### 📐 01-blueprint — The Engineering Skeleton
+#### 📐 02-blueprint — The Engineering Skeleton
 *"How we build things."*
 
 This layer contains the **technical constitution** of the repository: state management laws, component patterns, routing rules, API conventions, and framework-specific mandates.
@@ -189,7 +189,7 @@ This layer contains the **technical constitution** of the repository: state mana
 
 **For Humans:** Change this layer only after team agreement. It is the architectural contract.
 
-#### 🧪 02-validation — The Quality Gates
+#### 🧪 03-validation — The Quality Gates
 *"How we prove things work."*
 
 Testing protocols, mocking rules, assertion styles, coverage thresholds, and CI requirements. This layer tells the AI not just *that* tests are needed, but *exactly how* to write them.
@@ -198,7 +198,7 @@ Testing protocols, mocking rules, assertion styles, coverage thresholds, and CI 
 
 **For Humans:** Keep this aligned with your actual test suite. Outdated validation rails produce useless tests.
 
-#### 🛡️ 03-guardrails — Security & Delivery
+#### 🛡️ 04-guardrails — Security & Delivery
 *"What we must never break."*
 
 The final filter. Security rules (no secrets in logs, no PII leakage), mandatory checklists (no `console.log`, no `debugger`), and commit/delivery specifications (Conventional Commits, PR templates).
@@ -207,7 +207,7 @@ The final filter. Security rules (no secrets in logs, no PII leakage), mandatory
 
 **For Humans:** This is your safety net. If a breach happens, the fix belongs here first.
 
-#### 💼 04-domain — Business Logic
+#### 💼 01-domain — Business Logic
 *"What the business calls things."*
 
 The Ubiquitous Language layer. Glossary (`CartLineItem`, never `CartRow`), data model boundaries (max string lengths, currency precision), and core business flows (checkout sequence, refund policy).
@@ -226,7 +226,7 @@ As your product scales, your RAILGUN system should adapt. However, there are har
 
 * **Keep `AGENTS.md` imperative and short:** Write dispatchers as absolute commands. Use phrases like *"You MUST..."*, *"It is strictly forbidden to..."*, or *"Always handle X via Y..."*. The dispatcher itself should contain almost no implementation detail—only maps and orders.
 * **Keep rails dry and dense:** The actual `.md` files (state-management.md, glossary.md, etc.) should be bulleted, hyper-dense, and code-snippet-free. They are rails, not documentation.
-* **Add Specific Domain Layers:** If you build a heavy e-commerce module, drop a `payment-flows.md` file inside `04-domain/` and wire it in `04-domain/AGENTS.md`.
+* **Add Specific Domain Layers:** If you build a heavy e-commerce module, drop a `payment-flows.md` file inside `01-domain/` and wire it in `01-domain/AGENTS.md`.
 * **New Rails MUST Be Added via LLM-Assisted Validation:** When adding a new rule, instruct an AI agent to create it following `.railgun/rail-protocol.md`. The agent validates correct layer placement, checks for duplicates against existing rails, ensures format compliance, and updates all dispatchers. Never hand-craft a new rail without running it through the validation protocol.
 * **Use Relative Links:** Keep all files interconnected so the AI can navigate the system autonomously after being dispatched by `AGENTS.md`.
 
@@ -234,7 +234,7 @@ As your product scales, your RAILGUN system should adapt. However, there are har
 
 * **Do Not Paste Code:** RAILGUN files are architectural rails, not code snippet repositories. Pasting massive blocks of legacy code blows up token counts and confuses the model's generation logic.
 * **Do Not Write Essays:** AI doesn't care about the rich history of why your startup chose a specific library. Keep descriptions dry, bulleted, and hyper-dense.
-* **Do Not Mix Context Layers:** Keep business terminology in `04-domain` and tool patterns in `01-blueprint`. If you break this boundary, the AI will pull the wrong context for the task, fracturing the deterministic loop.
+* **Do Not Mix Context Layers:** Keep business terminology in `01-domain` and tool patterns in `02-blueprint`. If you break this boundary, the AI will pull the wrong context for the task, fracturing the deterministic loop.
 * **Do Not Put Rules in `README.md`:** `README.md` files are for humans. AI agents read `AGENTS.md`. If you hide rules in `README.md`, agents that auto-load `AGENTS.md` will miss them.
 
 ---

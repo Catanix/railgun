@@ -1,4 +1,4 @@
-# 03-guardrails: Security & Delivery
+# 04-guardrails: Security & Delivery
 
 This layer defines what must be checked before any work is considered complete.
 

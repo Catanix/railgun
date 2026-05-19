@@ -21,12 +21,12 @@ Before creating anything:
 Use this decision tree:
 
 - Is it about current sprint / temporary rules? → `00-runtime/current.md`
-- Is it about HOW to write code (patterns, libraries, architecture)? → `01-blueprint/`
-- Is it about testing / quality / proof? → `02-validation/`
-- Is it about security / delivery / checklists? → `03-guardrails/`
-- Is it about business entities / naming / models / flows? → `04-domain/`
+- Is it about HOW to write code (patterns, libraries, architecture)? → `02-blueprint/`
+- Is it about testing / quality / proof? → `03-validation/`
+- Is it about security / delivery / checklists? → `04-guardrails/`
+- Is it about business entities / naming / models / flows? → `01-domain/`
 
-**Forbidden:** Never create a rail outside these five layers. Never put a testing rule in `01-blueprint`. Never put an architectural pattern in `04-domain`.
+**Forbidden:** Never create a rail outside these five layers. Never put a testing rule in `02-blueprint`. Never put an architectural pattern in `01-domain`.
 
 ## Step 3: Write the Rail
 

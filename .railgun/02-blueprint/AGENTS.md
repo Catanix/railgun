@@ -1,4 +1,4 @@
-# 01-blueprint: Engineering Skeleton
+# 02-blueprint: Engineering Skeleton
 
 **Load this layer when the task involves: state management, routing, architecture, patterns, libraries, or file structure.**
 

@@ -1,4 +1,4 @@
-# 01-blueprint: The Engineering Skeleton
+# 02-blueprint: The Engineering Skeleton
 
 This layer defines HOW code must be written. It is the technical constitution of the repository.
 
