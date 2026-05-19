@@ -227,7 +227,7 @@ As your product scales, your RAILGUN system should adapt. However, there are har
 * **Keep `AGENTS.md` imperative and short:** Write dispatchers as absolute commands. Use phrases like *"You MUST..."*, *"It is strictly forbidden to..."*, or *"Always handle X via Y..."*. The dispatcher itself should contain almost no implementation detail—only maps and orders.
 * **Keep rails dry and dense:** The actual `.md` files (state-management.md, glossary.md, etc.) should be bulleted, hyper-dense, and code-snippet-free. They are rails, not documentation.
 * **Add Specific Domain Layers:** If you build a heavy e-commerce module, drop a `payment-flows.md` file inside `01-domain/` and wire it in `01-domain/AGENTS.md`.
-* **New Rails MUST Be Added via LLM-Assisted Validation:** When adding a new rule, instruct an AI agent to create it following `.railgun/rail-protocol.md`. The agent validates correct layer placement, checks for duplicates against existing rails, ensures format compliance, and updates all dispatchers. Never hand-craft a new rail without running it through the validation protocol.
+* **New Rails MUST Be Added via LLM-Assisted Validation:** Never edit rails manually. Instead, ask an AI agent using a natural-language prompt like *"Add routing information to RAILGUN"* or *"Update the state-management rail for the new checkout flow."* The agent will follow `.railgun/rail-protocol.md` to validate layer placement, check for duplicates, ensure format compliance, update all dispatchers, and verify no contradictions exist. Hand-crafting rails bypasses these safety checks and is strictly forbidden.
 * **Use Relative Links:** Keep all files interconnected so the AI can navigate the system autonomously after being dispatched by `AGENTS.md`.
 
 ### 🛑 What NOT to Do (The Anti-Patterns)
@@ -237,47 +237,4 @@ As your product scales, your RAILGUN system should adapt. However, there are har
 * **Do Not Mix Context Layers:** Keep business terminology in `01-domain` and tool patterns in `02-blueprint`. If you break this boundary, the AI will pull the wrong context for the task, fracturing the deterministic loop.
 * **Do Not Put Rules in `README.md`:** `README.md` files are for humans. AI agents read `AGENTS.md`. If you hide rules in `README.md`, agents that auto-load `AGENTS.md` will miss them.
 
----
 
-## 🤖 Why `AGENTS.md` Is the Critical Piece
-
-RAILGUN is designed to work with **how AI agents actually read context**, not against it.
-
-### How Modern AI Agents Discover Context
-
-Most advanced AI coding agents (including **Kimi Code CLI**, **Claude Code**, **GitHub Copilot**, and **OpenAI Codex**) support **hierarchical context discovery**. Here is how it works:
-
-* **Kimi Code CLI** automatically searches for `AGENTS.md` files starting from the directory of the file being edited, walking up to the repository root. Every `AGENTS.md` found is loaded into context automatically. The agent does not need to "decide" to read it—it is infrastructure.
-* **Claude Code** similarly discovers `CLAUDE.md` (and increasingly `AGENTS.md`) hierarchically as it operates on files within the directory tree.
-* **Cursor, Windsurf, and Copilot** also allow project-level context files that are automatically injected when working within the project scope.
-
-### Why This Changes Everything
-
-In the original "manual dispatcher" model, an agent had to:
-1. Notice a mention of `.railgun/core.md` somewhere
-2. Actively decide to open it
-3. Parse links and choose where to go
-
-This is **fragile**. The agent can skip steps, misread instructions, or simply forget to check a layer.
-
-With `AGENTS.md`, the discovery becomes **automatic and mandatory**:
-1. The agent starts working on a file
-2. It **automatically** loads the root `AGENTS.md` (because it's in the ancestor directory)
-3. The root `AGENTS.md` says: *"Go to `.railgun/AGENTS.md`"*
-4. The Command Center says: *"Check runtime, then load the relevant layer dispatcher"*
-5. The layer dispatcher says: *"Read this specific rail file"*
-
-The agent **cannot skip step 2** because `AGENTS.md` is loaded by the tool itself, not by the agent's reasoning. This makes RAILGUN **deterministic by infrastructure**, not by hope.
-
-### The Bottom Line
-
-`AGENTS.md` is not just a naming convention—it is the **activation mechanism** that makes RAILGUN reliable across every agent your team uses. It transforms RAILGUN from a "convention that agents should follow" into a "system that agents cannot avoid."
-
-If you are bootstrapping RAILGUN into an existing project that already has `.cursorrules`, `CLAUDE.md`, or other AI config files, simply append a RAILGUN anchor to them:
-
-```markdown
-<!-- RAILGUN Anchor -->
-This repository follows the RAILGUN methodology. See `.railgun/AGENTS.md` before any task.
-```
-
-This ensures every agent—no matter the vendor—enters through the same gate.
