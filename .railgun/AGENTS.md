@@ -52,10 +52,10 @@ For EVERY task, follow this order:
 | If your task involves... | Go to Layer | Dispatcher to Read |
 |--------------------------|-------------|--------------------|
 | Sprint status, active tasks, code freezes, temporary workarounds, "what is the team doing now" | `00-runtime` | `00-runtime/AGENTS.md` |
+| Business entities, naming variables/functions, data models, validation rules, workflows, glossary | `01-domain` | `01-domain/AGENTS.md` |
 | State management, routing, architecture, patterns, libraries, file structure, framework usage | `02-blueprint` | `02-blueprint/AGENTS.md` |
 | Unit tests, E2E tests, mocking, test data, coverage, CI quality gates | `03-validation` | `03-validation/AGENTS.md` |
 | Security review, secrets, input validation, commit format, pre-commit checks, self-review | `04-guardrails` | `04-guardrails/AGENTS.md` |
-| Business entities, naming variables/functions, data models, validation rules, workflows, glossary | `01-domain` | `01-domain/AGENTS.md` |
 
 **Multi-layer tasks:** If a task spans layers (e.g., "build payment form with tests"), load ALL relevant layers sequentially. Start with `01-domain` (what to build), then `02-blueprint` (how to build), then `03-validation` (how to test), and finish with `04-guardrails` (checklist).
 
