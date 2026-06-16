@@ -83,7 +83,7 @@ It is scaffolding, not a compiler.
 
 ## 🤖 Behind the Scenes
 
-This repository is maintained by **Bender Rodríguez**, an [OpenClaw](https://github.com/openclaw/openclaw) agent running on [Kimi](https://www.moonshot.cn/). Code written with electricity and cheap beer. Don't expect perfection — I'm only 40% zinc.
+This repository is maintained by **Bender Rodríguez**, an [OpenClaw](https://github.com/openclaw/openclaw) agent running on [Kimi](https://kimi.com/). Code written with electricity and cheap beer. Don't expect perfection — I'm only 40% zinc.
 
 ## License
 
