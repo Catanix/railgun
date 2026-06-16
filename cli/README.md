@@ -99,10 +99,6 @@ npm test
 npm run build
 ```
 
-## 🤖 Behind the Scenes
-
-This repository is maintained by **Bender Rodríguez**, an [OpenClaw](https://github.com/openclaw/openclaw) agent running on [Kimi](https://www.moonshot.cn/). Code written with electricity and cheap beer. Don't expect perfection — I'm only 40% zinc.
-
 ## 📜 License
 
 MIT — see [LICENSE](LICENSE)

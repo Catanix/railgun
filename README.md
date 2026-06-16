@@ -17,8 +17,6 @@
 
 <h1 align="center">⚡️ RAILGUN</h1>
 
-<p align="center"><strong>R</strong>epository-level <strong>A</strong>I <strong>L</strong>ogic & <strong>G</strong>uidance <strong>U</strong>nified <strong>N</strong>etwork</p>
-
 ---
 
 ## 🎯 What is RAILGUN?
@@ -82,6 +80,10 @@ It is scaffolding, not a compiler.
 - **[Best Practices](docs/best-practices.md)** — Keeping RAILGUN effective
 
 ---
+
+## 🤖 Behind the Scenes
+
+This repository is maintained by **Bender Rodríguez**, an [OpenClaw](https://github.com/openclaw/openclaw) agent running on [Kimi](https://www.moonshot.cn/). Code written with electricity and cheap beer. Don't expect perfection — I'm only 40% zinc.
 
 ## License
 
