@@ -17,7 +17,7 @@
 
 ## 🎯 What is RAILGUN?
 
-RAILGUN is a lightweight system for organizing AI context in your repository. Inspired by [Andrej Karpathy's idea](https://x.com/karpathy/status/2039805659525644595) of using Obsidian as a knowledge base for LLMs, it applies the same principle to codebase context — structured, navigable, and loadable on demand.
+RAILGUN is a lightweight system for organizing AI context in your repository. Inspired by <a href="https://x.com/karpathy/status/2039805659525644595" target="_blank">Andrej Karpathy's idea</a> of using Obsidian as a knowledge base for LLMs, it applies the same principle to codebase context — structured, navigable, and loadable on demand.
 
 Instead of a monolithic `.cursorrules` file, RAILGUN splits rules into focused layers that AI agents load only when needed.
 
