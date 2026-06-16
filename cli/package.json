@@ -3,14 +3,21 @@
   "version": "0.1.0",
   "description": "RAILGUN CLI — Repository-level AI Logic & Guidance Unified Network",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
     "railgun": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc && npm run copy-templates",
     "copy-templates": "cp -r src/templates dist/",
     "dev": "ts-node src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [
     "railgun",
@@ -18,10 +25,22 @@
     "cli",
     "agents",
     "cursor",
-    "claude"
+    "claude",
+    "prompt",
+    "rules",
+    "context"
   ],
-  "author": "Catanix",
+  "author": "Catanix <catanix@example.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Catanix/railgun.git",
+    "directory": "cli"
+  },
+  "bugs": {
+    "url": "https://github.com/Catanix/railgun/issues"
+  },
+  "homepage": "https://github.com/Catanix/railgun#readme",
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^11.0.0",
@@ -33,9 +52,12 @@
     "@types/inquirer": "^9.0.0",
     "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.4.11",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
     "ts-node": "^10.9.0",
     "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
