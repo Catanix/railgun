@@ -1,12 +1,12 @@
-# @railgun/cli
+# railgun-cli
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Catanix/railgun/main/assets/banner.png" alt="RAILGUN Banner" width="600" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@railgun/cli"><img src="https://img.shields.io/npm/v/@railgun/cli?style=flat-square&color=FF69B4" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/@railgun/cli"><img src="https://img.shields.io/npm/dm/@railgun/cli?style=flat-square&color=FF69B4" alt="npm downloads" /></a>
+  <a href="https://www.npmjs.com/package/railgun-cli"><img src="https://img.shields.io/npm/v/railgun-cli?style=flat-square&color=FF69B4" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/railgun-cli"><img src="https://img.shields.io/npm/dm/railgun-cli?style=flat-square&color=FF69B4" alt="npm downloads" /></a>
   <a href="https://github.com/Catanix/railgun/actions"><img src="https://img.shields.io/github/actions/workflow/status/Catanix/railgun/test.yml?style=flat-square&color=green" alt="Tests" /></a>
   <img src="https://img.shields.io/badge/node->=16.0.0-blue?style=flat-square" alt="Node Version" />
   <a href="https://github.com/Catanix/railgun/blob/main/cli/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" /></a>
@@ -20,26 +20,26 @@
 
 ```bash
 # Add RAILGUN to your project
-npx @railgun/cli add
+npx railgun-cli add
 
 # Interactive wizard with presets
-npx @railgun/cli init
+npx railgun-cli init
 
 # Remove RAILGUN from project
-npx @railgun/cli remove
+npx railgun-cli remove
 ```
 
 ## 📦 Installation
 
 ### Global (recommended)
 ```bash
-npm install -g @railgun/cli
+npm install -g railgun-cli
 railgun add
 ```
 
 ### Per-project
 ```bash
-npm install --save-dev @railgun/cli
+npm install --save-dev railgun-cli
 npx railgun add
 ```
 

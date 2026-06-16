@@ -1,4 +1,4 @@
-# Contributing to @railgun/cli
+# Contributing to railgun-cli
 
 ## Adding a New Preset
 

@@ -1,5 +1,5 @@
 {
-  "name": "@railgun/cli",
+  "name": "railgun-cli",
   "version": "0.1.0",
   "description": "RAILGUN CLI — Repository-level AI Logic & Guidance Unified Network",
   "main": "dist/index.js",
@@ -30,7 +30,7 @@
     "rules",
     "context"
   ],
-  "author": "Catanix <catanix@example.com>",
+  "author": "catanix",
   "license": "MIT",
   "repository": {
     "type": "git",

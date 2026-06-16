@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/Catanix/railgun/actions"><img src="https://img.shields.io/badge/tests-passing-brightgreen" alt="Tests"></a>
-  <a href="https://www.npmjs.com/package/@railgun/cli"><img src="https://img.shields.io/badge/npm-@railgun/cli-pink" alt="npm"></a>
+  <a href="https://www.npmjs.com/package/railgun-cli"><img src="https://img.shields.io/badge/npm-railgun-cli-pink" alt="npm"></a>
   <a href="https://github.com/Catanix/railgun"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
 </p>
 
@@ -43,8 +43,8 @@ Instead of a monolithic `.cursorrules` file, RAILGUN splits rules into focused l
 ### Option 1: CLI (Recommended)
 
 ```bash
-npx @railgun/cli add    # Add RAILGUN to current project
-npx @railgun/cli init   # Interactive wizard with presets
+npx railgun-cli add    # Add RAILGUN to current project
+npx railgun-cli init   # Interactive wizard with presets
 ```
 
 ### Option 2: Manual
