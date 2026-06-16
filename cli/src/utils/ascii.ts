@@ -1,33 +1,52 @@
 import chalk from 'chalk';
 
 export const RAILGUN_ASCII = `
-${chalk.hex('#FF69B4')('██╗   ██╗ ██████╗ ██╗   ██╗██████╗ ')}
-${chalk.hex('#FF1493')('██║   ██║██╔═══██╗██║   ██║██╔══██╗')}
-${chalk.hex('#FF69B4')('██║   ██║██║   ██║██║   ██║██████╔╝')}
-${chalk.hex('#FF1493')('╚██╗ ██╔╝██║   ██║██║   ██║██╔══██╗')}
-${chalk.hex('#FF69B4')(' ╚████╔╝ ╚██████╔╝╚██████╔╝██║  ██║')}
-${chalk.hex('#FF1493')('  ╚═══╝   ╚═════╝  ╚═════╝ ╚═╝  ╚═╝')}
+██████╗  █████╗ ██╗██╗      ██████╗ ██╗   ██╗███╗   ██╗
+██╔══██╗██╔══██╗██║██║     ██╔════╝ ██║   ██║████╗  ██║
+██████╔╝███████║██║██║     ██║  ███╗██║   ██║██╔██╗ ██║
+██╔══██╗██╔══██║██║██║     ██║   ██║██║   ██║██║╚██╗██║
+██║  ██║██║  ██║██║███████╗╚██████╔╝╚██████╔╝██║ ╚████║
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝
 `;
 
-export const SPARKLE = chalk.hex('#FF69B4')('✨');
-export const ROCKET = chalk.hex('#FF1493')('🚀');
-export const CHECK = chalk.hex('#00FF00')('✓');
-export const WARN = chalk.hex('#FFA500')('⚠');
-export const INFO = chalk.hex('#00BFFF')('ℹ');
+export const PINK = chalk.hex('#FF69B4');
+export const BOLD_PINK = chalk.hex('#FF69B4').bold;
 
-export function showBanner(): void {
-  console.log(RAILGUN_ASCII);
-  console.log(chalk.hex('#FF69B4').bold('  Repository-level AI Logic & Guidance Unified Network\n'));
+export const SPARKLE = '✨';
+export const ROCKET = '🚀';
+export const CHECK = '✅';
+export const WARN = '⚠️';
+export const BOOK = '📚';
+export const GEAR = '⚙️';
+export const TRASH = '🗑️';
+
+export function showBanner() {
+  console.log(PINK(RAILGUN_ASCII));
+  console.log(PINK('  Repository-level AI Logic & Guidance Unified Network\n'));
 }
 
-export function success(msg: string): void {
-  console.log(`${SPARKLE} ${chalk.green(msg)}`);
+export function success(msg: string) {
+  console.log(`${CHECK} ${chalk.green(msg)}`);
 }
 
-export function warning(msg: string): void {
+export function info(msg: string) {
+  console.log(`${BOOK} ${chalk.blue(msg)}`);
+}
+
+export function warning(msg: string) {
   console.log(`${WARN} ${chalk.yellow(msg)}`);
 }
 
-export function info(msg: string): void {
-  console.log(`${INFO} ${chalk.cyan(msg)}`);
+export function pinkBox(title: string, lines: string[]) {
+  const width = Math.max(title.length, ...lines.map(l => l.length)) + 4;
+  const top = PINK('┌' + '─'.repeat(width - 2) + '┐');
+  const bottom = PINK('└' + '─'.repeat(width - 2) + '┘');
+  const titleLine = PINK('│ ' + BOLD_PINK(title.padEnd(width - 4)) + ' │');
+  const contentLines = lines.map(l => PINK('│ ' + chalk.white(l.padEnd(width - 4)) + ' │'));
+  
+  console.log('\n' + top);
+  console.log(titleLine);
+  console.log(PINK('│' + ' '.repeat(width - 2) + '│'));
+  contentLines.forEach(l => console.log(l));
+  console.log(bottom + '\n');
 }

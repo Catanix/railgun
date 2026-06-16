@@ -3,6 +3,12 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Catanix/railgun/actions"><img src="https://img.shields.io/badge/tests-passing-brightgreen" alt="Tests"></a>
+  <a href="https://www.npmjs.com/package/@railgun/cli"><img src="https://img.shields.io/badge/npm-@railgun/cli-pink" alt="npm"></a>
+  <a href="https://github.com/Catanix/railgun"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
+</p>
+
+<p align="center">
   <a href="docs/getting-started.md">Getting Started</a> •
   <a href="docs/layers.md">Layers</a> •
   <a href="docs/adding-rules.md">Adding Rules</a> •

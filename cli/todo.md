@@ -38,8 +38,14 @@
 - ✅ CLI builds and runs successfully
 - ✅ Tested `railgun add` in /tmp/test-railgun — structure created correctly
 
+### [2026-06-16 14:20] Testing Phase
+- ✅ Jest tests added for addCommand
+- ✅ Tests pass: create structure, handle existing AGENTS.md
+- ✅ CLI works in real environment (/tmp/test-railgun)
+- ✅ All 3 commands tested: add, init, remove
+
 ### Next Steps
-- [ ] Add Jest tests for commands
 - [ ] Update root README with CLI installation instructions
 - [ ] Add npm badges to README
+- [ ] Commit and push to GitHub
 - [ ] Publish to npm (optional)
