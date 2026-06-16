@@ -12,6 +12,20 @@
 - [ ] Error handling covers edge cases, not just the happy path
 - [ ] Variable and function names follow the project glossary and conventions
 
+## CLI-Specific Checks (for RAILGUN CLI development)
+
+- [ ] Commands registered in `src/index.ts` with proper descriptions
+- [ ] No hardcoded paths (always use `process.cwd()` or `path.join()`)
+- [ ] Existing AI configs detected before modification (CLAUDE.md, .cursorrules, AGENTS.md)
+- [ ] User confirmation obtained before modifying any project files
+- [ ] Graceful exit when user declines (exit code 0, no error message)
+- [ ] ASCII art renders correctly in terminal (test with `node dist/index.js`)
+- [ ] Pink color scheme consistent (`#FF69B4` primary, green success, yellow warning)
+- [ ] All preset files are valid markdown (React, Vue, Python, Go)
+- [ ] `npm run build` succeeds with zero TypeScript errors
+- [ ] `npm test` passes with 100% of tests green
+- [ ] No `node_modules/` or `dist/` committed (check `.gitignore`)
+
 ## Commit Message Format (Conventional Commits)
 
 Every commit message MUST follow this structure:
@@ -59,6 +73,7 @@ Fixes #289
 Before declaring this task complete, I confirm that:
 - [ ] I have read all relevant rails for this task
 - [ ] I have completed the Mandatory Self-Review checklist above
+- [ ] I have completed the CLI-Specific Checks (if applicable)
 - [ ] I have verified the commit message format (if committing)
 - [ ] I have run all applicable tests and they pass
 - [ ] I have explicitly stated which rails were used in this task

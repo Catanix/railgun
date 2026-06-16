@@ -26,3 +26,39 @@ Every test MUST follow Arrange → Act → Assert:
 - Tests that depend on execution order of other tests
 - Tests with non-deterministic inputs (random, Date.now(), network) without mocking
 - Tests that assert on internal implementation rather than public behavior
+
+## CLI-Specific Testing
+
+### Mocking Interactive Prompts (Inquirer)
+```typescript
+import inquirer from 'inquirer';
+
+jest.mock('inquirer', () => ({
+  prompt: jest.fn(),
+}));
+
+const mockedInquirer = inquirer as jest.Mocked<typeof inquirer>;
+
+// In test:
+mockedInquirer.prompt.mockResolvedValueOnce({ confirmed: true });
+mockedInquirer.prompt.mockResolvedValueOnce({ mode: 'skip' });
+```
+
+### Filesystem Testing
+- Use `fs.mkdtemp()` for temp directories
+- Always `process.chdir()` into temp dir
+- Clean up with `fs.remove()` in `afterEach`
+- Assert on file existence AND content
+
+### Test Isolation
+- Reset mocks with `jest.resetAllMocks()` in `beforeEach`
+- Never share temp directories between tests
+- Each test gets fresh filesystem state
+
+### Required CLI Test Cases
+1. **Happy path:** Command creates expected structure
+2. **Existing files:** Command preserves existing configs
+3. **User decline:** Command exits gracefully when user says "no"
+4. **Integration modes:** Auto, Manual, Skip modes work correctly
+5. **Idempotency:** Running twice doesn't break anything
+
