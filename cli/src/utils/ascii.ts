@@ -22,7 +22,6 @@ export const TRASH = '🗑️';
 
 export function showBanner() {
   console.log(PINK(RAILGUN_ASCII));
-  console.log(PINK('  Repository-level AI Logic & Guidance Unified Network\n'));
 }
 
 export function success(msg: string) {

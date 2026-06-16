@@ -1,7 +1,7 @@
 {
   "name": "railgun-cli",
   "version": "0.1.0",
-  "description": "RAILGUN CLI — Repository-level AI Logic & Guidance Unified Network",
+  "description": "RAILGUN CLI",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {

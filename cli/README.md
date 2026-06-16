@@ -12,8 +12,6 @@
   <a href="https://github.com/Catanix/railgun/blob/main/cli/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" /></a>
 </p>
 
-<h3 align="center">Repository-level AI Logic & Guidance Unified Network</h3>
-
 ---
 
 ## 🚀 Quick Start

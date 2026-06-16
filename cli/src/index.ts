@@ -10,7 +10,7 @@ const program = new Command();
 
 program
   .name('railgun')
-  .description('RAILGUN CLI — Repository-level AI Logic & Guidance Unified Network')
+  .description('RAILGUN CLI')
   .version('0.1.0');
 
 program
