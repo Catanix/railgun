@@ -34,6 +34,15 @@ Instead of a monolithic `.cursorrules` file, RAILGUN splits rules into focused l
 
 ## 📦 Quick Start
 
+### Option 1: CLI (Recommended)
+
+```bash
+npx @railgun/cli add    # Add RAILGUN to current project
+npx @railgun/cli init   # Interactive wizard with presets
+```
+
+### Option 2: Manual
+
 1. Copy the `.railgun/` directory into your repository
 2. Add a root `AGENTS.md`:
 
