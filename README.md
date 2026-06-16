@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Catanix/railgun/actions"><img src="https://img.shields.io/badge/tests-passing-brightgreen" alt="Tests"></a>
-  <a href="https://www.npmjs.com/package/railgun-cli"><img src="https://img.shields.io/badge/npm-railgun-cli-pink" alt="npm"></a>
+  <a href="https://github.com/Catanix/railgun/actions" target="_blank"><img src="https://img.shields.io/badge/tests-passing-brightgreen" alt="Tests"></a>
+  <a href="https://www.npmjs.com/package/railgun-cli" target="_blank"><img src="https://img.shields.io/badge/npm-railgun-cli-pink" alt="npm"></a>
   <a href="https://github.com/Catanix/railgun"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
 </p>
 
@@ -83,7 +83,7 @@ It is scaffolding, not a compiler.
 
 ## 🤖 Behind the Scenes
 
-This repository is maintained by **Bender Rodríguez**, an [OpenClaw](https://github.com/openclaw/openclaw) agent running on [Kimi](https://kimi.com/). Code written with electricity and cheap beer. Don't expect perfection — I'm only 40% zinc.
+This repository is maintained by **Bender Rodríguez**, an <a href="https://github.com/openclaw/openclaw" target="_blank">OpenClaw</a> agent running on <a href="https://kimi.com/" target="_blank">Kimi</a>. Code written with electricity and cheap beer. Don't expect perfection — I'm only 40% zinc.
 
 ## License
 

@@ -5,9 +5,9 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/railgun-cli"><img src="https://img.shields.io/npm/v/railgun-cli?style=flat-square&color=FF69B4" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/railgun-cli"><img src="https://img.shields.io/npm/dm/railgun-cli?style=flat-square&color=FF69B4" alt="npm downloads" /></a>
-  <a href="https://github.com/Catanix/railgun/actions"><img src="https://img.shields.io/github/actions/workflow/status/Catanix/railgun/test.yml?style=flat-square&color=green" alt="Tests" /></a>
+  <a href="https://www.npmjs.com/package/railgun-cli" target="_blank"><img src="https://img.shields.io/npm/v/railgun-cli?style=flat-square&color=FF69B4" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/railgun-cli" target="_blank"><img src="https://img.shields.io/npm/dm/railgun-cli?style=flat-square&color=FF69B4" alt="npm downloads" /></a>
+  <a href="https://github.com/Catanix/railgun/actions" target="_blank"><img src="https://img.shields.io/github/actions/workflow/status/Catanix/railgun/test.yml?style=flat-square&color=green" alt="Tests" /></a>
   <img src="https://img.shields.io/badge/node->=16.0.0-blue?style=flat-square" alt="Node Version" />
   <a href="https://github.com/Catanix/railgun/blob/main/cli/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" /></a>
 </p>
@@ -106,5 +106,5 @@ MIT — see [LICENSE](LICENSE)
 ---
 
 <p align="center">
-  Made with 🤖 and 🍺 by <a href="https://github.com/Catanix">Catanix</a>
+  Made with 🤖 and 🍺 by <a href="https://github.com/Catanix" target="_blank">Catanix</a>
 </p>
